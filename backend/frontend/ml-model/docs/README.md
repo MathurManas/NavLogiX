@@ -44,5 +44,5 @@ Machine Learning: Scikit-Learn, XGBoost
 
 ## 👨‍💻 Author
 
-Manas Mathur
+Manas Mathur|
 Manav Bhatt 
