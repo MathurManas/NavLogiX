@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>NavLogix</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="glass-card">
+  <h1>NavLogix</h1>
+  <p class="tagline">Predictive Logistics Routing System</p>
+
+  <div class="inputs">
+    <input id="traffic" placeholder="Traffic Congestion Level">
+    <input id="cost" placeholder="Shipping Cost">
+    <input id="risk" placeholder="Route Risk Level">
+    <input id="lead" placeholder="Lead Time (days)">
+    <input id="driver" placeholder="Driver Behavior Score">
+  </div>
+
+  <button onclick="predict()">Predict Delivery Risk</button>
+
+  <div id="result" class="result"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
