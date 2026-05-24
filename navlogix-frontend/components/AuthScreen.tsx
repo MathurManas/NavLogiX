@@ -19,7 +19,15 @@ export default function AuthScreen() {
       if (isLogin) {
         await signInWithEmailAndPassword(auth, email, password);
       } else {
-        await createUserWithEmailAndPassword(auth, email, password);
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        // Send welcome email
+        if (userCredential.user?.email) {
+          fetch('/api/welcome', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: userCredential.user.email }),
+          }).catch(console.error);
+        }
       }
     } catch (err: any) {
       if (err.code === 'auth/invalid-credential') {
@@ -40,7 +48,18 @@ export default function AuthScreen() {
     setError("");
     setLoading(true);
     try {
-      await signInWithPopup(auth, googleProvider);
+      const result = await signInWithPopup(auth, googleProvider);
+      
+      // Check if this is a new user (optional, but good for welcome emails)
+      // For simplicity, we can just send it if it's the first time we see them
+      // Alternatively, just send it on every Google sign in or use additional logic
+      if (result.user?.email) {
+        fetch('/api/welcome', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: result.user.email }),
+        }).catch(console.error);
+      }
     } catch (err: any) {
       setError(err.message || "Google authentication failed.");
     } finally {

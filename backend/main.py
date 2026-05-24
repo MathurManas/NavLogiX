@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 
 from app.weather import get_weather
-from app.model import predict_risk
+from app.model import predict_risk, get_tactical_advice
 
 load_dotenv()
 
@@ -23,11 +23,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 @app.get("/")
 def root():
     return {"message": "NavLogix API is running 🚀"}
-
 
 @app.get("/api/predict")
 def predict(
@@ -38,7 +36,7 @@ def predict(
 ):
     """
     Predict route risk based on city weather and driver score.
-    Returns risk level (High / Moderate / Low) and weather details.
+    Returns risk level, weather details, and tactical recommendations.
     """
     # 1. Fetch weather for the destination city
     weather = get_weather(city)
@@ -51,6 +49,9 @@ def predict(
         humidity=weather.get("humidity", 60.0),
     )
 
+    # 3. Get tactical advice
+    advice = get_tactical_advice(risk, driver_score)
+
     return {
         "risk": risk,
         "driver_score": driver_score,
@@ -61,4 +62,6 @@ def predict(
             "humidity": weather.get("humidity", 60),
             "wind_speed": weather.get("wind_speed", 10.0),
         },
+        "tactical_advice": advice
     }
+

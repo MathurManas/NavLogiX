@@ -37,16 +37,21 @@ export default function Documentation() {
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
             
             <section style={{ marginBottom: '60px' }}>
-              <h2 style={{ fontFamily: "'Google Sans', sans-serif", fontSize: '28px', fontWeight: 500, marginBottom: '20px', color: 'var(--google-blue)' }}>
-                Overview
-              </h2>
-              <p style={{ fontSize: '16px', color: 'var(--text-secondary)', lineHeight: '1.8', marginBottom: '20px' }}>
-                NavLogix is a sophisticated predictive logistics platform designed to enhance delivery safety and efficiency. By synthesizing real-time atmospheric telemetry with historical driver performance data, the system identifies potential risks before a journey begins.
-              </p>
-              <div className="panel" style={{ background: 'var(--bg-secondary)', border: 'none' }}>
-                <p style={{ fontSize: '15px', fontStyle: 'italic', color: 'var(--text-primary)' }}>
-                  "Our mission is to transform logistical uncertainty into calculable risk, ensuring every shipment reaches its destination securely."
-                </p>
+              <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '48px', alignItems: 'center' }}>
+                <div>
+                  <h2 style={{ fontFamily: "'Google Sans', sans-serif", fontSize: '28px', fontWeight: 500, marginBottom: '20px', color: 'var(--google-blue)' }}>
+                    Overview
+                  </h2>
+                  <p style={{ fontSize: '16px', color: 'var(--text-secondary)', lineHeight: '1.8', marginBottom: '20px' }}>
+                    NavLogix is a sophisticated predictive logistics platform designed to enhance delivery safety and efficiency. By synthesizing real-time atmospheric telemetry with historical driver performance data, the system identifies potential risks before a journey begins.
+                  </p>
+                  <p style={{ fontSize: '16px', color: 'var(--text-secondary)', lineHeight: '1.8' }}>
+                    Every route generated is evaluated against live conditions, giving logistics operators high-confidence feedback for mission-critical decision making.
+                  </p>
+                </div>
+                <div className="img-card" style={{ height: '300px' }}>
+                  <img src="/images/risk_viz.png" alt="Risk Assessment Engine" className="img-fluid" style={{ height: '100%', objectFit: 'contain', padding: '20px' }} />
+                </div>
               </div>
             </section>
 

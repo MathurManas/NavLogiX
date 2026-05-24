@@ -25,10 +25,15 @@ export default function About() {
     <div className="app-wrapper">
       <Header />
 
-      <section className="hero" style={{ padding: '80px 0 60px', background: 'linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%)' }}>
-        <div className="container hero-content" style={{ textAlign: 'center', margin: '0 auto' }}>
-          <h1 className="hero-title">Our Mission: Safe & Smart Logistics</h1>
-          <p className="hero-subtitle">NavLogix is dedicated to bringing cutting-edge predictive intelligence to the global supply chain, ensuring every delivery is backed by data-driven safety assessments.</p>
+      <section className="hero" style={{ padding: '60px 0', background: 'var(--bg-secondary)' }}>
+        <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '64px', alignItems: 'center' }}>
+          <div className="hero-content">
+            <h1 className="hero-title" style={{ fontSize: '40px' }}>Our Mission: Safe & Smart Logistics</h1>
+            <p className="hero-subtitle">NavLogix is dedicated to bringing cutting-edge predictive intelligence to the global supply chain, ensuring every delivery is backed by data-driven safety assessments.</p>
+          </div>
+          <div className="img-card" style={{ height: '350px' }}>
+            <img src="/images/mission.png" alt="Mission Logistics" className="img-fluid" style={{ height: '100%', objectFit: 'cover' }} />
+          </div>
         </div>
       </section>
 

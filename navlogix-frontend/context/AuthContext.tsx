@@ -22,7 +22,16 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       setUser(currentUser);
       setLoading(false);
     });
-    return () => unsubscribe();
+
+    // Safety timeout: if auth takes longer than 5s, show the auth screen anyway
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+
+    return () => {
+      unsubscribe();
+      clearTimeout(timeout);
+    };
   }, []);
 
   return (
