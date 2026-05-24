@@ -6,3 +6,6 @@ node_modules/
 .env.local
 ml-model/model.pkl
 *.csv
+backend.log
+backend_debug.log
+.DS_Store
